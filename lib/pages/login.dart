@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../main.dart';
+
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -164,7 +166,14 @@ class _LoginState extends State<Login> {
                       fontSize: 18,
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    if (_isUsingEmail) {
+                      authService.emailSignIn(
+                        _emailController.text,
+                        _passwordController.text,
+                      );
+                    }
+                  },
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
                   ),
